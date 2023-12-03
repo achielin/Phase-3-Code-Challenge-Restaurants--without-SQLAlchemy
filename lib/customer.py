@@ -1,39 +1,54 @@
+from Restaurant import Restaurant
 class Customer:
-    customers = []
+    all_instances = []
+    all_names = []
 
-    def __init__(self, given_name, family_name):
-        self.given_name = given_name
-        self.family_name = family_name
-        Customer.customers.append(self)
-
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.fullName = first_name + " " + last_name
+        Customer.all(self)
+        Customer.allNamesHandler(self)
+        
     def given_name(self):
-        return self.given_name
-
+        return(self.first_name)
+    
     def family_name(self):
-        return self.family_name
-
+        return(self.last_name)
+    
     def full_name(self):
-        return f"{self.given_name} {self.family_name}"
+        return(f"{self.first_name} {self.last_name}")
+        pass
+
+    def restaurants(self):
+        
+        pass
+
+    def add_review(restaurant, rating):
+        pass
 
     @classmethod
-    def all(cls):
-        return cls.customers
-
-    def num_reviews(self):
-        return len(self.reviews)
-
-    @classmethod
-    def find_by_name(cls, name):
-        for customer in cls.customers:
-            if customer.full_name() == name:
-                return customer
-        return None
+    def all(cls, new_customer_instance):
+        
+        cls.all_instances.append(new_customer_instance)
+        pass
 
     @classmethod
-    def find_all_by_given_name(cls, name):
-        return [customer for customer in cls.customers if customer.given_name == name]
+    def print_all_instances(cls):
+        print([fullname.fullName for fullname in cls.all_instances])
 
-    def add_review(self, restaurant, rating):
-        review = Review(self, restaurant, rating)
-        return review
+    @classmethod
+    def allNamesHandler(cls, new_customer):
+        cls.all_names.append(new_customer.fullName)
+
+    @classmethod
+    def allNamesPrinter(cls):
+        print([fullName for fullName in cls.all_names])
+
+
+
+customer1 = Customer("Gweth", "Maduong") 
+customer2 = Customer("Hawi", "Mangeny") 
+customer3 = Customer("Mor", "Ahinya") 
+customer4 = Customer("Ber", "Tee") 
 
