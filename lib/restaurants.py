@@ -30,10 +30,7 @@ class Restaurant:
 restaurant_0 = Restaurant("12345") 
 
 
-""""""
-   
-#Customer
-""""""
+
 class Customer:
     all_instances = []
     all_names = []
@@ -86,10 +83,7 @@ customer1 = Customer("Gweth", "Maduong")
 customer2 = Customer("Hawi", "Mangeny") 
 customer3 = Customer("Mor", "Ahinya") 
 customer4 = Customer("Ber", "Tee") 
-""""""
 
-#Review
-""""""
 class Review(Customer):
     all_reviews = []
 
